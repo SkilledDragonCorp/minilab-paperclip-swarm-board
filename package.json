@@ -14,7 +14,8 @@
     "smoke:paperclip": "bash scripts/paperclip-smoke.sh",
     "check:skills": "bun run scripts/check-skills-frontmatter.ts",
     "audit": "bun audit",
-    "hooks:install": "bash scripts/install-githooks.sh"
+    "hooks:install": "bash scripts/install-githooks.sh",
+    "report": "bun run scripts/report.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",

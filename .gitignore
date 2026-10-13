@@ -48,3 +48,6 @@ paperclip-upstream/
 # Gitleaks local cache
 .gitleaks/
 tools/gitleaks
+
+# run logs stay local
+reports/*.log

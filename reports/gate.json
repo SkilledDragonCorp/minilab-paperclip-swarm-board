@@ -1,0 +1,81 @@
+{
+  "lab": "minilab-paperclip-swarm-board",
+  "generated_at": "2026-10-13T15:01:57.104Z",
+  "elapsed_ms": 165004,
+  "elapsed_s": 165,
+  "keyless": true,
+  "mode": "keyless-subset",
+  "mode_note": "bun test + documented keyless Vitest subset via scripts/upstream-vitest.sh (UPSTREAM_FULL_TEST unset) + paperclip-smoke.sh (--help only). Full upstream suite omitted.",
+  "versions": {
+    "bun": "1.4.2",
+    "node": "26.3.0"
+  },
+  "upstream_repo": "https://github.com/paperclipai/paperclip.git",
+  "upstream_commit": "f329b24ee12496e710ad17377ec7716e0eee22ef",
+  "upstream_commit_short": "f329b24",
+  "upstream_test_command": "pnpm check:node-version && pnpm run test:check-no-git-push && pnpm run test:runner-acceptance",
+  "pass_criteria": "Exit code 0 from check:node-version, test:check-no-git-push, and test:runner-acceptance (Vitest). Not Playwright e2e. Optional UPSTREAM_FULL_TEST=1 runs full pnpm test.",
+  "ok": true,
+  "steps_total": 3,
+  "steps_passed": 3,
+  "steps_failed": 0,
+  "bun_test": {
+    "passed": 4,
+    "failed": 0,
+    "skipped": 1,
+    "total": 5,
+    "files": 3
+  },
+  "vitest": {
+    "ok": true,
+    "exit_code": 0,
+    "passed": 19,
+    "failed": 0,
+    "skipped": 0,
+    "files": 3,
+    "runs": 1,
+    "summary_lines": [
+      "Tests  19 passed (19)"
+    ]
+  },
+  "node_test": null,
+  "upstream": {
+    "cloned": true,
+    "installed": true,
+    "gate_exited_0": true,
+    "failure_reason": null
+  },
+  "smoke_ok": true,
+  "steps": [
+    {
+      "id": "bun-test",
+      "command": "bun run test",
+      "ok": true,
+      "exit_code": 0,
+      "elapsed_ms": 62
+    },
+    {
+      "id": "upstream-vitest",
+      "command": "bash scripts/upstream-vitest.sh",
+      "ok": true,
+      "exit_code": 0,
+      "elapsed_ms": 158902
+    },
+    {
+      "id": "paperclip-smoke",
+      "command": "bash scripts/paperclip-smoke.sh",
+      "ok": true,
+      "exit_code": 0,
+      "elapsed_ms": 6040
+    }
+  ],
+  "headline": {
+    "bun_tests_passed": 4,
+    "vitest_passed": 19,
+    "vitest_failed": 0,
+    "smoke_ok": true,
+    "steps": "3/3",
+    "upstream_commit": "f329b24",
+    "elapsed_ms": 165004
+  }
+}
