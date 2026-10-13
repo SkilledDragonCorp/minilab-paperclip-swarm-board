@@ -33,7 +33,17 @@ cd "$WORK"
 corepack enable
 pnpm install --frozen-lockfile
 
-echo "==> pnpm test (Vitest via test:run — not Playwright e2e default)"
-pnpm test
+if [[ "${UPSTREAM_FULL_TEST:-0}" == "1" ]]; then
+  echo "==> UPSTREAM_FULL_TEST=1 — pnpm test (full Vitest stable runner; may take >60m)"
+  pnpm test
+else
+  echo "==> Keyless gate (verified at pin ${UPSTREAM_SHA}):"
+  echo "    - pnpm check:node-version"
+  echo "    - pnpm run test:check-no-git-push  (node:test policy)"
+  echo "    - pnpm run test:runner-acceptance   (Vitest; not Playwright e2e)"
+  pnpm check:node-version
+  pnpm run test:check-no-git-push
+  pnpm run test:runner-acceptance
+fi
 
-echo "==> PASS: upstream Vitest suite exited 0"
+echo "==> PASS: upstream keyless test gate exited 0"

@@ -10,9 +10,13 @@ export const UPSTREAM_NPM_PACKAGE = "paperclipai" as const;
 /** Upstream Node policy (from paperclip package.json engines). */
 export const UPSTREAM_MIN_NODE = "24.11.0" as const;
 
-/** Keyless default test entrypoint in upstream monorepo. */
-export const UPSTREAM_TEST_COMMAND = "pnpm test" as const;
+/**
+ * Default keyless gate in scripts/upstream-vitest.sh (fast, no API keys).
+ * Set UPSTREAM_FULL_TEST=1 in that script for full `pnpm test` → test:run.
+ */
+export const UPSTREAM_TEST_COMMAND =
+  "pnpm check:node-version && pnpm run test:check-no-git-push && pnpm run test:runner-acceptance" as const;
 
-/** Pass criteria: Vitest stable runner exits 0 (`test` → `test:run`). */
+/** Pass criteria for the default gate (Vitest runner-acceptance + node policy tests). */
 export const UPSTREAM_PASS_CRITERIA =
-  "Exit code 0 from `pnpm test` (runs preflight + Vitest via scripts/run-vitest-stable.mjs). Not Playwright e2e." as const;
+  "Exit code 0 from check:node-version, test:check-no-git-push, and test:runner-acceptance (Vitest). Not Playwright e2e. Optional UPSTREAM_FULL_TEST=1 runs full pnpm test." as const;

@@ -50,7 +50,7 @@ When docs and behavior disagree, trust **measured limits** from a dry run (`pape
 
 ## Keyless verification in this minilab
 
-- Upstream: `bash scripts/upstream-vitest.sh` → pinned Paperclip commit, `pnpm test` (Vitest). **Not** default Playwright e2e.
+- Upstream: `bash scripts/upstream-vitest.sh` → pinned commit, keyless gate (`test:runner-acceptance` Vitest + policy tests). **Not** Playwright e2e. Full `pnpm test` via `UPSTREAM_FULL_TEST=1`.
 - CLI docs smoke: `bash scripts/paperclip-smoke.sh` → `--help` and `onboard --help` only (no secrets).
 
 Live onboarding (`onboard --yes`) needs network, loopback, and optional `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` — see repo `.env.example`.

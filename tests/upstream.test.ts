@@ -17,7 +17,8 @@ describe("upstream pin", () => {
     );
     expect(script).toContain(UPSTREAM_PINNED_SHA);
     expect(script).toContain(UPSTREAM_REPO);
-    expect(script).toContain(UPSTREAM_TEST_COMMAND.replace("pnpm ", ""));
+    expect(script).toContain("test:runner-acceptance");
+    expect(script).toContain("test:check-no-git-push");
   });
 
   test("SHA is 40-char hex", () => {

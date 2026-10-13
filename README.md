@@ -39,11 +39,12 @@ bash scripts/paperclip-smoke.sh
 # or MINILAB_RUN_SMOKE=1 bun test tests/smoke.test.ts
 ```
 
-Upstream Vitest (long; clones Paperclip):
+Upstream Vitest gate (clones Paperclip; keyless):
 
 ```bash
 bash scripts/upstream-vitest.sh
-# Pass criteria: exit 0 from `pnpm test` (Vitest via test:run — not default Playwright e2e)
+# Default pass: check:node-version + test:check-no-git-push + test:runner-acceptance (Vitest)
+# Full monorepo Vitest (slow): UPSTREAM_FULL_TEST=1 bash scripts/upstream-vitest.sh
 ```
 
 ## Setup
