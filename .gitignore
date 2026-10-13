@@ -1,0 +1,50 @@
+# Secrets and local env
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+credentials.json
+secrets/
+
+# Dependencies and build
+node_modules/
+.pnpm-store/
+dist/
+build/
+*.tsbuildinfo
+
+# Bun (keep bun.lock committed)
+bun.lockb
+
+# Caches and logs
+.cache/
+.tmp/
+tmp/
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Coverage and test artifacts
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Upstream clone (upstream-vitest.sh uses a temp dir; ignore stray checkouts)
+.upstream-paperclip/
+paperclip-upstream/
+
+# Gitleaks local cache
+.gitleaks/
+tools/gitleaks

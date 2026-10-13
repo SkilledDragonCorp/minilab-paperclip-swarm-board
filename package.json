@@ -1,0 +1,23 @@
+{
+  "name": "@skilleddragon/minilab-paperclip-swarm-board",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "SkilledDragon minilab: Paperclip swarm board wrapper, upstream Vitest harness, and Claude skill",
+  "engines": {
+    "node": ">=24.11.0",
+    "bun": ">=1.2.0"
+  },
+  "scripts": {
+    "test": "bun test",
+    "test:upstream": "bash scripts/upstream-vitest.sh",
+    "smoke:paperclip": "bash scripts/paperclip-smoke.sh",
+    "check:skills": "bun run scripts/check-skills-frontmatter.ts",
+    "audit": "bun audit",
+    "hooks:install": "bash scripts/install-githooks.sh"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.8.3"
+  }
+}
